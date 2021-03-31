@@ -14,9 +14,9 @@ export const stopSearchMovies = (loading) => ({
     type: types.END_SEARCH_MOVIES,
     loading
 })
-export const searchMovieSuccess = (dataMovies) => ({
+export const searchMovieSuccess = (movies) => ({
     type: types.SEARCH_MOVIES_SUCCESS,
-    dataMovies
+    movies
 })
 export const searchMovieFail = (error) => ({
     type: types.SEARCH_MOVIES_FAIL,

@@ -13,7 +13,7 @@ export const searchMovieReducer = (state = initState, action) => {
         case types.END_SEARCH_MOVIES:
             return {...state, loading: action.loading}
         case types.SEARCH_MOVIES_SUCCESS:
-            return {...state, dataMovies: action.dataMovies, error: null}
+            return {...state, dataMovies: action.movies, error: null}
         case types.SEARCH_MOVIES_FAIL:
             return {...state , dataMovies: [], error: action.error}
         default:

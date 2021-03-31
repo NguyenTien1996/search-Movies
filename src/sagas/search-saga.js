@@ -7,7 +7,7 @@ function* searchMovieSaga({nameMovie}) {
     try{
         yield put(actions.startSearchMovies(true));
         const data = yield call(api.searchMovieByKeywords, nameMovie);
-            if(data.result.length > 0){
+            if(data.results.length > 0){
                 yield put(actions.searchMovieSuccess(data));
             }else{
             yield put(actions.searchMovieFail({

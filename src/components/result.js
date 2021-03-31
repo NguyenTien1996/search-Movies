@@ -1,13 +1,19 @@
 import React from 'react';
 import { useSelector} from 'react-redux';
 import {Row, Col, Card, Skeleton}  from 'antd';
+import { createStructuredSelector} from 'reselect';
 import * as reselect from '../reselect/movie-reselect';
 
 const { Meta } = Card;
 const ResultMovies = () => {
-    const loading = useSelector(state => state.searchMovie.loading);
+    //const loading = useSelector(state => state.searchMovie.loading);
     //tham so trong useSelector :selector - la 1 ham lay state duoc tra ra tu reducer trong store 
-    const movies = useSelector(state => state.searchMovie.dataMovies);
+    //const movies = useSelector(state => state.searchMovie.dataMovies);
+    const {loading, movies , totalItems} = useSelector(createStructuredSelector({
+        loading: reselect.loadingReselect,
+        movies: reselect.resultMovieReselect,
+        totalItems: reselect.totalResults
+    }))
 
     if(loading){
         return(
@@ -21,7 +27,7 @@ const ResultMovies = () => {
     return(
         <>
             <Row style={{padding:"10px"}}>
-                {movies.hasOwnProperty('results') ? movies.results.map((item, index) => (
+                {movies ? movies.map((item, index) => (
                     <Col span={4} offset={0} key={index}>
                         <Card
                             hoverable

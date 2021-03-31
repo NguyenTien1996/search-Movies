@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React,{useState} from 'react';
 import { useDispatch} from 'react-redux';
 import {Row, Col, Input} from 'antd';
 import { searchMovies} from '../actions/index';
@@ -8,6 +8,7 @@ const { Search } = Input;
 const SearchMovies = () => {
     const dispatch = useDispatch();
 
+    const [page, setPage] = useState(1);
     const [ keyword, setKeyWord] = useState('');
     const changeInput = (event) => {
         const val = event.target.value;

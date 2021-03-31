@@ -1,16 +1,20 @@
 import { createSelector } from 'reselect';
 
-const movieSearchSelector = state => state.searchMovie.dataMovies;
+const movieSearchSelector = state => state.searchMovie;
 
-const resultMovieReselect = createSelector(
+export const resultMovieReselect = createSelector(
     movieSearchSelector,
-    item => item.results
+    item => item.dataMovies.results
 );
 export const totalResults = createSelector(
     movieSearchSelector,
-    item => item.total_results
+    item => item.dataMovies.total_results
 )
 export const totalPages = createSelector(
     movieSearchSelector,
-    item => item.total_pages
+    item => item.dataMovies.total_pages
+)
+export const loadingReselect = createSelector(
+    movieSearchSelector,
+    item => item.loading
 )

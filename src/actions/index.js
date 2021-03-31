@@ -1,8 +1,9 @@
 import * as types from './types';
 
-export const searchMovies = (nameMovie) => ({
+export const searchMovies = (nameMovie, cPage=1) => ({
     type: types.SEARCH_MOVIES,
-    nameMovie
+    nameMovie,
+    cPage
 });
 
 //dinh nghia action 
